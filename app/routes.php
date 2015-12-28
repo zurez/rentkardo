@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/',"IndexController@index");
+Route::get('index',"IndexController@index");
+
+
+Route::get('addbook','BookController@index');
+Route::post('addbook','BookController@create');

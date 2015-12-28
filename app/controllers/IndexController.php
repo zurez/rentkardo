@@ -1,17 +1,16 @@
 <?php
 
-class BookController extends \BaseController {
+class IndexController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-
-	// Google Books Api key : AIzaSyDE2VtFAfaSUj9KHaOebAx6v2fZ3tulXyk
 	public function index()
 	{
-		return View::make('addbook');
+		$books= Books::all();
+		return View::make('index')->with('books',$books);
 	}
 
 
@@ -22,26 +21,7 @@ class BookController extends \BaseController {
 	 */
 	public function create()
 	{
-		// return Input::get("");exit();
-		$book = new Books;
-		$book->title= Input::get('title');
-		$book->description= Input::get('description');
-		$book->category=Input::get('genre');
-		$book->sub_category="none";
-		$book->author=Input::get('author');
-		$book->condition=Input::get('cond');
-		$book->location=Input::get('loc');
-		$book->cover=Input::get('image');
-		$book->snippet="none";
-		$book->language=Input::get('lang');
-		$book->popularity="none";
-		$book->quantity=Input::get('quantity');
-		$book->expected_price=Input::get('rate');
-		$book->purpose=Input::get('purpose');
-		$book->added_by="none";
-		$book->save();
-		echo "Book Added";
-
+		//
 	}
 
 

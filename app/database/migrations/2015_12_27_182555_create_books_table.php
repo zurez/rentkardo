@@ -18,8 +18,8 @@ class CreateBooksTable extends Migration {
 			$table->increments('id'); //Autoincremented primary key
 			$table->string('title');
 			$table->string('description');
-			$table->text('category');
-			$table->text('sub_category');
+			$table->string('category');
+			$table->string('sub_category')->default('nd');
 			$table->text('author');
 			$table->text('condition');
 			$table->text('location');
@@ -27,13 +27,13 @@ class CreateBooksTable extends Migration {
 			$table->text('snippet');
 			$table->text('language');
 			$table->integer('popularity'); //could be something
-			$table->integer('quantity'); //Number of Copies ; Default 1
+			$table->integer('quantity')->default(1); //Number of Copies ; Default 1
 			$table->integer('expected_price');
-			$table->string('purpose'); //Sell or Exchange or Rent ; Default Rent
+			$table->string('purpose')->default('rent'); //Sell or Exchange or Rent ; Default Rent
 			$table->text('added_by'); //UserID
 			$table->timestamps();
 		});
-	}
+	
 	}
 
 	/**
