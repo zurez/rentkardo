@@ -82,7 +82,7 @@
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Requests</a></li>
 								<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -121,7 +121,7 @@
                                     </ul>
                                 </li> 
 								<!-- <li><a href="404.html">404</a></li> -->
-								<li><a href="addbook">Contact</a></li>
+								<li><a href="contactus">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -324,7 +324,7 @@
 						</div><!--/price-range-->
 						
 						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
+							<img src="img/ad.jpg" alt="" />
 						</div><!--/shipping-->
 					
 					</div>
@@ -471,7 +471,7 @@
 							<h2>Service</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="contactus">Contact Us</a></li>
 								<!-- <li><a href="#">Order Status</a></li> -->
 								<li><a href="#">Change Location</a></li>
 								<li><a href="#">FAQ’s</a></li>

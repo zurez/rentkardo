@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en" ng-app="book">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +23,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <style type="text/css">
-    .a{
-    	outline: 0 !important;
-    	border: none !important;
-    }
-    </style>
 </head><!--/head-->
 
 <body>
@@ -65,6 +58,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
+							
 							<a href="index"><h2>Rent Kardo</h2></a>
 						</div>
 						<div class="btn-group pull-right">
@@ -85,11 +79,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="addbook"><i class="fa fa-user"></i> Add a book</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Requests</a></li>
 								<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -111,7 +105,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index" class="active">Home</a></li>
+								<li><a href="/rentkardo/" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Browse<i class="fa fa-angle-down"></i></a>
                                  <!--    <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Books</a></li>
@@ -128,7 +122,7 @@
                                     </ul>
                                 </li> 
 								<!-- <li><a href="404.html">404</a></li> -->
-								<li><a href="contactus">Contact</a></li>
+								<li><a href="addbook">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -141,131 +135,69 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	 
-	 <div id="contact-page" class="container" ng-controller= "BookController">
+		 
+	 <div id="contact-page" class="container">
     	<div class="bg">
-	    <!-- 	<div class="row">    		
+	    	<div class="row">    		
 	    		<div class="col-sm-12">    			   			
 					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
 					<div id="gmap" class="contact-map">
 					</div>
 				</div>			 		
-			</div>   -->  	
+			</div>    	
     		<div class="row">  	
-	    		<div class="col-sm-12">
-	    			
-	    				<h2 class="title text-center">Add a book</h2>
-	    				<input ng-model ="bookname" placeholder="Enter book name here. Be precise"type="text" class="form-control"> <br><button ng-click="populate()" class="btn btn-default">@{{buttonText}}</button>
-	    		
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">Get In Touch</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+				            <div class="form-group col-md-6">
+				                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+				            </div>
+				            <div class="form-group col-md-6">
+				                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+				            </div>
+				            <div class="form-group col-md-12">
+				                <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+				            </div>
+				            <div class="form-group col-md-12">
+				                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+				            </div>                        
+				            <div class="form-group col-md-12">
+				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+				            </div>
+				        </form>
 	    			</div>
 	    		</div>
-	    		</div>
-	    		<div class="row"><br></div>
-	    		<div class="row">
-	    			<div class="col-sm-7" ng-hide = "c<2">
-		    			{{Form::open(array('action'=>"BookController@create",'class'=>"form-horizontal"))}}
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="title">Title:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="title" value=@{{title}} class="a form-control" ng-disabled="d>2"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="author">Author:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="author" value=@{{author}} class="a form-control" ng-disabled="d>2"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="genre">Genre:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="genre" value=@{{genre}} class="form-control"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="description">Description:</label> </div>
-		    				 <div class="col-sm-10"><p class="a form-control">@{{description}} > </p></div>
-		    			</div>
-		    			<input type="hidden" value=@{{description}} name="description">
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="publisher">Publisher:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="publisher" value=@{{publisher}} class="a form-control" ng-disabled="d>2"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="rating">Rating:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="rating" value=@{{rating}} class="a form-control" ng-disabled="d>2"></div>
-		    			</div>
-		    			<input type="hidden" name ="image" value=@{{image}}>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="pubdate">Publish Date:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="pubdate" value=@{{pubdate}} class="a form-control"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="cond">Condition of Book:</label> </div>
-		    				 <div class="col-sm-10"><select type="select" name="cond" class="form-control">
-		    				 	<option value="1">Excellent</option>
-		    				 	<option value="2">Good</option>
-		    				 	<option value="3">Fair</option>
-		    				 	<option value="4">Not So Good</option>
-		    				 	</select>
-		    				 </div>
-
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="loc">Your Location:</label> </div>
-		    				 <div class="col-sm-10"><select type="select" name="loc" class="form-control">
-		    				 	<option value="1">North Delhi</option>
-		    				 	<option value="2">South Delhi</option>
-		    				 	<option value="3">East Delhi</option>
-		    				 	<option value="4">West Delhi</option>
-		    				 	<option value="5">Central Delhi</option>
-		    				 	</select>
-		    				 </div>
-
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="lang">Language of Book:</label> </div>
-		    				 <div class="col-sm-10"><select type="select" name="lang" class="form-control">
-		    				 	<option value="1">English</option>
-		    				 	<option value="2">Hindi</option>
-		    			
-		    				 	</select>
-		    				 </div>
-
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="purpose">Purpose:</label> </div>
-		    				 <div class="col-sm-10"><select type="select" name="purpose" class="form-control">
-		    				 	<option value="1">Rent</option>
-		    				 	<option value="2">Sell</option>
-		    				 	<option value="3">Both</option>
-		    		
-		    				 	</select>
-		    				 </div>
-
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="rate">Quantity:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="quantity" value="1" class="form-control" ng-disabled="d>2"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="rate">Expected Rate:</label> </div>
-		    				 <div class="col-sm-10"><input type="text" name="rate" placeholder="In Rupees" class="form-control"></div>
-		    			</div>
-		    			<div class="form-group">
-		    				 <div class="col-sm-2"><label class="control-label" for="rate">Cover:</label> </div>
-		    				 <div class="col-sm-10"><img ng-src=@{{image}}></div>
-		    			</div>
-		    			<div class="form-group col-sm-offset-2 "><input ng-click= "sub()"type="submit" value=" Add the Book" class="btn btn-success"> </div>
-		    			
-		    			{{Form::close()}}
-			    	
-			    			
-			    		
-
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">Contact Info</h2>
+	    				<address>
+	    					<p>Rent kardo</p>
+							<p>University of Delhi</p>
+							<p>Delhi India</p>
+							<p>Mobile: +91-123456789</p>
+							<p>Fax: 1-714-252-0026</p>
+							<p>Email: info@rent-kardo.com</p>
+	    				</address>
+	    				<div class="social-networks">
+	    					<h2 class="title text-center">Social Networking</h2>
+							<ul>
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-youtube"></i></a>
+								</li>
+							</ul>
+	    				</div>
 	    			</div>
-	    			
-	    		</div>
-	    		<div class="row">
-
-	    			
-	    		</div>
-	    		
-	    			</div> 
     			</div>    			
 	    	</div>  
     	</div>	
@@ -360,7 +292,7 @@
 							<h2>Service</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Online Help</a></li>
-								<li><a href="contactus">Contact Us</a></li>
+								<li><a href="#">Contact Us</a></li>
 								<!-- <li><a href="#">Order Status</a></li> -->
 								<li><a href="#">Change Location</a></li>
 								<li><a href="#">FAQ’s</a></li>
@@ -419,15 +351,13 @@
 		</div>
 		
 	</footer><!--/Footer-->
-	
-	
 
   
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!-- // <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
-    <!-- // <script type="text/javascript" src="js/gmaps.js"></script> -->
-	<!-- // <script src="js/contact.js"></script> -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/gmaps.js"></script>
+	<script src="js/contact.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>

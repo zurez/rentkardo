@@ -13,7 +13,8 @@
 
 Route::get('/',"IndexController@index");
 Route::get('index',"IndexController@index");
-
-
+Route::get("/login","LogController@index");
+Route::get('contactus',"PageController@getcontactus");
+Route::post('contactus',"PageController@postcontactus");
 Route::get('addbook','BookController@index');
 Route::post('addbook','BookController@create');
