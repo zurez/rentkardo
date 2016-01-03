@@ -82,7 +82,7 @@
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Requests</a></li>
 								<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -141,15 +141,15 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						{{Form::open(array('url'=>'login'))}}
+							<input type="text" name="email" placeholder="Email Address" />
+							<input type="password" name="password" placeholder="Password" />
 							<span>
-								<input type="checkbox" class="checkbox"> 
+								<input type="checkbox" name ="checkbox" class="checkbox"> 
 								Keep me signed in
 							</span>
-							<button type="submit" class="btn btn-default">Login</button>
-						</form>
+							<input type="submit" class="btn btn-success" value="Login">
+						{{Form::close()}}
 					</div><!--/login form-->
 				</div>
 				<div class="col-sm-1">
@@ -158,17 +158,27 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="#">
-							<input type="text" placeholder="Name"/>
-							<input type="email" placeholder="Email Address"/>
-							<input type="password" placeholder="Password"/>
-							<button type="submit" class="btn btn-default">Signup</button>
-						</form>
+						{{Form::open(array('url'=>'signup'))}}
+							<input type="text" name="name" placeholder="Name"/>
+							<input type="email" name = "email" placeholder="Email Address"/>
+							<input type="password" name ="password" placeholder="Password"/>
+
+							<input type="submit" class="btn btn-primary" value = "Signup">
+						{{Form::close()}}
 					</div><!--/sign up form-->
 				</div>
 			</div>
+		@if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>        
+            @endforeach
+        </div>
+        @endif
 		</div>
+		
 	</section><!--/form-->
+
 	
 	
 	<footer id="footer"><!--Footer-->
