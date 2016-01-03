@@ -10,7 +10,7 @@ class IndexController extends \BaseController {
 	public function index()
 	{
 		$books= Books::all();
-		return View::make('index')->with('books',$books);
+		return View::make('index')->with(array('books'=>$books,'title'=>'Home'));
 	}
 
 

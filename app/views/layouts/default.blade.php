@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="book">
 @include("layouts.head")
 <body>
 @include("layouts.header")

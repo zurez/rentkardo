@@ -6,7 +6,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +91-123456789</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@rentkardo.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@bookd</a></li>
 							</ul>
 						</div>
 					</div>
@@ -31,19 +31,16 @@
 					<div class="col-sm-4">
 						<div class="logo pull-left">
 							
-							<a href="index"><h2>Rent Kardo</h2></a>
+							<a href="index"><h2>Bookd</h2></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								South Delhi
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
+								
+								{{-- <ul class="dropdown-menu">
 									<li><a href="#">South Delhi</a></li>
 									<li><a href="#">West Delhi</a></li>
 								</ul>
-							</div>
+							</div> --}}
 							
 						
 						</div>
@@ -52,10 +49,16 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="addbook"><i class="fa fa-user"></i> Add a book</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Requests</a></li>
+								<li><a href="wishlist"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><a href="requests"><i class="fa fa-crosshairs"></i> Requests</a></li>
 								<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
-								<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
+								
+								@if(Auth::check())
+									<li><a href="logout"><i class="fa fa-lock"></i> Logout</a></li>
+									@else
+										<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
+								@endif
+								
 							</ul>
 						</div>
 					</div>
@@ -78,15 +81,12 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/rentkardo/" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Browse<i class="fa fa-angle-down"></i></a>
-                                 <!--    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Books</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul> -->
-                                </li> 
+							
+									<li ><a href="account">My Books<i class="fa "></i></a>
+								
+								
+								
+                           
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">Blog List</a></li>

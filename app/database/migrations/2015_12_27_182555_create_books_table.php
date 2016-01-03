@@ -14,7 +14,9 @@ class CreateBooksTable extends Migration {
 	{
 		//Create the books table
 		Schema::create('books',function($table)
+
 		{
+			$table->engine = "InnoDB";
 			$table->increments('id'); //Autoincremented primary key
 			$table->string('title');
 			$table->string('description');

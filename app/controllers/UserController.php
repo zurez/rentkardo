@@ -7,6 +7,11 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct()
+			  {
+			    # code...
+			    $this->beforeFilter('admin');
+			  }
 	public function index()
 	{
 		//
@@ -53,11 +58,11 @@ class UserController extends \BaseController {
 		$username = Auth::user()->username;
 		$tn = $username+"_"+"books";//tableName
 
-		DB::table($tn)
+		// DB::table($tn)
 
 		// Add book to Web Database
 
-		$book = new Books;
+		$book = new Books();
 		$book->title= Input::get('title');
 
 		$book->description= Input::get('description');
@@ -118,8 +123,8 @@ class UserController extends \BaseController {
 
 	public function wishlist()
 	{
-		$username= Auth::user()->username;
-		$tn= $username+"_"+"wishlist";
+		$username= Auth::user()->username; echo $username; exit();
+		$tn= $username."_wishlist";
 		$wish= DB::table($tn)->get();
 		return View::make('wishlist')->with(array('wish'=>$wish)); 	
 	}
@@ -137,5 +142,11 @@ class UserController extends \BaseController {
 		DB::table($tn)->where('id', '=',$id)->delete();
 	}
 
-
+public function requests()
+{
+	$userid = Auth::user()->userid;
+	$tn= $userid."_requests";
+	$req= DB::table($tn)->get();
+	return View::make('requests')->with(array('req'=>$req));
+}
 }

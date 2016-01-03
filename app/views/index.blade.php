@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A book renting platform">
     <meta name="author" content="zurez">
-    <title>Home | Rent-Kardo</title>
+    <title>Home | Bookd</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +91-123456789</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@rentkardo.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@bookd.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -58,20 +58,10 @@
 					<div class="col-sm-4">
 						<div class="logo pull-left">
 							
-							<a href="index"><h2>Rent Kardo</h2></a>
+							<a href="index"><h2>BOOKD</h2></a>
 						</div>
 						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								South Delhi
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">South Delhi</a></li>
-									<li><a href="#">West Delhi</a></li>
-								</ul>
-							</div>
-							
+				
 						
 						</div>
 					</div>
@@ -79,10 +69,15 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="addbook"><i class="fa fa-user"></i> Add a book</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Requests</a></li>
+								<li><a href="wishlist"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><a href="requests"><i class="fa fa-crosshairs"></i> Requests</a></li>
 								<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
-								<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
+									
+								@if(Auth::check())
+									<li><a href="logout"><i class="fa fa-lock"></i> Logout</a></li>
+									@else
+										<li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
+								@endif
 							</ul>
 						</div>
 					</div>
@@ -114,12 +109,12 @@
 										<li><a href="login.html">Login</a></li> 
                                     </ul> -->
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+						{{-- 		<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
-                                </li> 
+                                </li>  --}}
 								<!-- <li><a href="404.html">404</a></li> -->
 								<li><a href="contactus">Contact</a></li>
 							</ul>
@@ -368,8 +363,9 @@
 								<div class="product-overlay">
 									<div class="overlay-content">
 									<h6 style="text-align:left;padding:5px;">{{$book->description}}</h6>
-									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Request for Rent</a>
-	
+									{{ link_to_route('request', 'Contact the Owner',array($book->id), array('class' => ' btn btn-default fa fa-shopping-cart')) }}
+								{{-- 	<a href={{ link_to_route('request', 'Request for Rent',array($book->id)}} class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Request for Rent</a>
+	 --}}
 									</div>
 									
 								</div>
@@ -487,15 +483,13 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Terms of Use</a></li>
 								<li><a href="#">Privecy Policy</a></li>
-								<!-- <li><a href="#">Refund Policy</a></li> -->
-								<!-- <li><a href="#">Billing System</a></li> -->
-								<li><a href="#">Ticket System</a></li>
+							
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Rent Kardo</h2>
+							<h2>About Bookd</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Company Information</a></li>
 								<li><a href="#">Careers</a></li>
@@ -507,7 +501,7 @@
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Rent Kardo</h2>
+							<h2>About Bookd</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -523,7 +517,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2015 Rent Kardo All rights reserved.</p>
+					<p class="pull-left">Copyright © 2015 Bookd All rights reserved.</p>
 					<!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
 				</div>
 			</div>

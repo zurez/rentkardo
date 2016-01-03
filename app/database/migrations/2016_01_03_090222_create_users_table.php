@@ -13,14 +13,15 @@ class CreateUsersTable extends Migration {
   public function up()
   {
       Schema::create('users', function(Blueprint $table)
-      {
+      { 
+          $table->engine = "InnoDB";
           $table->increments('id');
 
           $table->string('name', 32);
 
           $table->string('email', 320);
           $table->string('password', 64);
- 
+          $table->string('userid');
 
 
                       // required for Laravel 4.1.26

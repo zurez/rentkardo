@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 @extends('layouts.default')
 
 
